@@ -16,9 +16,9 @@ def main():
     os.chdir(cwd)
 
     port = 8090
-    print('Starting server web v1.0.0 on port %d...' % port)
-
-    print(WebService().API_run_melinda())
+    print('Starting server web v1.0.0 ')
+    print(f'Web server address http://localhost:{port}/')
+    print(f'Web server address http://0.0.0.0:{port}/')
 
     api_dispatch = Dispatch().register(WebService, 'API_')
 
