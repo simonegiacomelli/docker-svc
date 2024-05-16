@@ -34,11 +34,8 @@ class WebService:
         time.sleep(3)
         return 'aspetta un po'
 
-    def git_pull(self):
-        return run(['git', 'pull'])
-
     def API_git_pull(self):
-        return str(self.git_pull())
+        return str(run(['git', 'pull']))
 
     def API_make_down(self):
         return str(run(['make', 'down']))
