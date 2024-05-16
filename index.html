@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>docker-svc</title>
+    <style>
+        #result {
+            font-family: 'Courier New', monospace;
+            font-size: 80%;
+        }
+    </style>
 </head>
 <body>
 <h4>melindasvc</h4>
@@ -21,7 +27,7 @@
 <script>
     let group_template = document.querySelector('#group_template');
     let container = document.querySelector('#container');
-    let result = document.querySelector('#result');    
+    let result = document.querySelector('#result');
 
     async function get(url) {
         let response = await fetch(url);
@@ -37,8 +43,8 @@
     }
 
 
-    async function start(){
-        for(let name of await get('list') ){
+    async function start() {
+        for (let name of await get('list')) {
 
             let group_instance = group_template.content.cloneNode(true);
             let apiBtn = group_instance.querySelector('#apiBtn')
