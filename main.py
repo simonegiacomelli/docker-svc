@@ -17,16 +17,17 @@ def main():
 
     port = 8090
     print('Starting server web v1.0.0 ')
-    print(f'Web server address http://localhost:{port}/')
-    print(f'Web server address http://0.0.0.0:{port}/')
+    path = 'docker-svc'
+    print(f'Web server address http://localhost:{port}/{path}/')
+    print(f'Web server address http://0.0.0.0:{port}/{path}/')
 
     api_dispatch = Dispatch().register(WebService, 'API_')
 
     def handler(request: RequestHandler) -> bool:
         params, rpath = request.decode_request()
-        api_prefix = '/svc/'
+        api_prefix = f'/{path}/svc/'
 
-        if rpath == '/' or rpath == api_prefix:
+        if rpath == f'/{path}/' or rpath == api_prefix:
             request.send_response(302)
             request.send_header('Location', f'{api_prefix}index')
             request.end_headers()
