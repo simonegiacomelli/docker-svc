@@ -37,6 +37,9 @@ class WebService:
     def API_git_pull(self):
         return str(run(['git', 'pull']))
 
+    def API_make_build(self):
+        return str(run(['make', 'build']))
+
     def API_make_down(self):
         return str(run(['make', 'down']))
 
